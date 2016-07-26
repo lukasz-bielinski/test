@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: git-sync-deploment
 spec:
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
         run: git-sync-deploment
     spec:
       containers:
-      - name: git-sync-deploment
+      - name: git-sync
         image: lukaszbielinski/git-sync:0.1
         volumeMounts:
         - name: markdown
