@@ -24,7 +24,7 @@ spec:
           value: /git
 
       - name: hugo
-        image: lukaszbielinski/kubectl-image:0.3
+        image: lukaszbielinski/kubectl-image:0.4
         imagePullPolicy: Always
         volumeMounts:
         - name: markdown
