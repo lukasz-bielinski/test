@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: git-sync-deploment
+  name: provisioner
 spec:
   replicas: 0
   template:
     metadata:
       labels:
-        run: git-sync-deploment
+        run: provisioner
     spec:
       containers:
       - name: git-sync
@@ -23,7 +23,7 @@ spec:
         - name: GIT_SYNC_DEST
           value: /git
 
-      - name: hugo
+      - name: kubectl-image
         image: lukaszbielinski/kubectl-image:0.4
         imagePullPolicy: Always
         volumeMounts:
