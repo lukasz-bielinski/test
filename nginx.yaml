@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: test
 spec:
-  replicas: 17
+  replicas: 3
   template:
     metadata:
       labels:
