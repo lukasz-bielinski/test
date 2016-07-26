@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: test
 spec:
-  replicas: 1
+  replicas: 8
   template:
     metadata:
       labels:
@@ -11,4 +11,4 @@ spec:
     spec:
       containers:
       - name: test
-        image: nginx:1.11.1
+        image: nginx:1.10
