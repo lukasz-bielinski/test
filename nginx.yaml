@@ -12,8 +12,17 @@ spec:
       containers:
       - name: test
         image: nginx:1.11
+        volumeMounts:
+        - name: secr
+          mountPath: /secr
         lifecycle:
           preStop:
             exec:
               # SIGTERM triggers a quick exit; gracefully terminate instead
               command: ["/usr/sbin/nginx","-s","quit"]
+
+
+
+      volumes:
+      - name: secr
+        secrets: testsec 
