@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: provisioner
 spec:
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
