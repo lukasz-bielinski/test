@@ -1,14 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: test
 spec:
   replicas: 13
   template:
     metadata:
       labels:
-        run: my-nginx
+        run: test
     spec:
       containers:
-      - name: my-nginx
+      - name: test
         image: nginx:1.10
