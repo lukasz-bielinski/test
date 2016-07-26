@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: git-sync-deploment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: git-sync-deploment
+    spec:
+      containers:
+      - name: git-sync-deploment
+        image: lukaszbielinski/git-sync:0.1
+        volumeMounts:
+        - name: markdown
+          mountPath: /git
+        env:
+        - name: GIT_SYNC_REPO
+          value: https://github.com/lukasz-bielinski/test
+        - name: GIT_SYNC_WAIT
+          value: "30"
+        - name: GIT_SYNC_DEST
+          value: /git
+
+      - name: hugo
+        image: lukaszbielinski/kubectl-image:0.3
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: markdown
+          mountPath: /src
+
+      volumes:
+      - name: markdown
+        emptyDir: {}
