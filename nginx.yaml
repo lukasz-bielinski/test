@@ -25,4 +25,5 @@ spec:
 
       volumes:
       - name: secr
-        secrets: testsec 
+        secret:
+          secretName: testsec 
