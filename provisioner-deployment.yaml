@@ -11,10 +11,19 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:0.1
+        image: lukaszbielinski/git-sync:0.4
+        resources:
+          limits:
+            cpu: 500m
+            memory: "700Mi"
+          requests:
+            cpu: 100m
+            memory: 100Mi
         volumeMounts:
         - name: markdown
           mountPath: /git
+        - name: secr
+          mountPath: /root/.ssh/klucze
         env:
         - name: GIT_SYNC_REPO
           value: https://github.com/lukasz-bielinski/test
@@ -25,6 +34,13 @@ spec:
 
       - name: kubectl-image
         image: lukaszbielinski/kubectl-image:0.4
+        resources:
+          limits:
+            cpu: 500m
+            memory: "700Mi"
+          requests:
+            cpu: 100m
+            memory: 100Mi
         imagePullPolicy: Always
         volumeMounts:
         - name: markdown
@@ -33,3 +49,6 @@ spec:
       volumes:
       - name: markdown
         emptyDir: {}
+      - name: secr
+        secret:
+          secretName: testsec
