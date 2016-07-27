@@ -12,9 +12,9 @@ spec:
       containers:
       - name: test
         image: nginx:1.11
-        volumeMounts:
-        - name: secr
-          mountPath: /secr
+        # volumeMounts:
+        # - name: secr
+        #   mountPath: /secr
         lifecycle:
           preStop:
             exec:
@@ -23,7 +23,7 @@ spec:
 
 
 
-      volumes:
-      - name: secr
-        secret:
-          secretName: testsec 
+      # volumes:
+      # - name: secr
+      #   secret:
+      #     secretName: testsec
