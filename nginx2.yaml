@@ -1,14 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-1
+  name: nginx-2
   namespace: ns-a
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        run: nginx-1
+        run: nginx-2
     spec:
       containers:
       - name: test
@@ -27,4 +27,4 @@ spec:
       volumes:
       - name: secr
         secret:
-          secretName: sec-ngx-1
+          secretName: sec-ngx-2
