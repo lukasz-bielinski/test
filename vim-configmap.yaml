@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vip-configmap
+data:
+  10.1.177.162: ns-a/nginx-1
+  10.1.177.163: ns-a/nginx-2

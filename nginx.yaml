@@ -39,10 +39,10 @@ metadata:
   namespace: ns-a
 spec:
   clusterIP: 10.0.0.27
-  deprecatedPublicIPs:
-  - 192.168.42.193
-  externalIPs:
-  - 192.168.42.193
+  # deprecatedPublicIPs:
+  # - 192.168.42.193
+  # externalIPs:
+  # - 192.168.42.193
   ports:
   - port: 8080
     protocol: TCP
