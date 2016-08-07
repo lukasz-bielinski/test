@@ -29,24 +29,24 @@ spec:
         secret:
           secretName: sec-ngx-1
 
-# ------------------------
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   labels:
-#     run: nginx-1
-#   name: nginx-1
-#   namespace: ns-a
-# spec:
-#   externalIPs:
-#   - 192.168.42.193
-#   ports:
-#   - port: 8080
-#     protocol: TCP
-#     targetPort: 80
-#   selector:
-#     run: nginx-1
-#   sessionAffinity: None
-#   type: LoadBalancer
-# status:
-#   loadBalancer: {}
+------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: nginx-1
+  name: nginx-1
+  namespace: ns-a
+spec:
+  externalIPs:
+  - 192.168.1.14
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: nginx-1
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

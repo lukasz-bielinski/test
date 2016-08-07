@@ -4,4 +4,3 @@ metadata:
   name: vip-configmap
 data:
   192.168.1.14: ns-a/nginx-1
-  192.168.1.15: ns-a/nginx-2
