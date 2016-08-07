@@ -25,7 +25,7 @@ spec:
         - name: GIT_SYNC_DEST
           value: /git
         - name: NAMESPACE
-          value:   
+          value:
 
       - name: deployprov
         image: lukaszbielinski/kubectl-image:0.10
