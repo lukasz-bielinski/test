@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-4
+  namespace: ns-c
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: nginx-4
+    spec:
+      containers:
+      - name: test
+        image: nginx:1.11
+        volumeMounts:
+        - name: secr
+          mountPath: /secr
+        lifecycle:
+          preStop:
+            exec:
+              # SIGTERM triggers a quick exit; gracefully terminate instead
+              command: ["/usr/sbin/nginx","-s","quit"]
+
+
+
+      volumes:
+      - name: secr
+        secret:
+          secretName: sec-ngx-4
