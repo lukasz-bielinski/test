@@ -19,7 +19,7 @@ spec:
           mountPath: /root/.ssh/klucze
         env:
         - name: GIT_SYNC_REPO
-          value: https://github.com/lukasz-bielinski/test1
+          value: https://github.com/lukasz-bielinski/test
         - name: GIT_SYNC_WAIT
           value: "10"
         - name: GIT_SYNC_DEST
