@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: git-sync
+        run: deployprov
     spec:
       containers:
       - name: git-sync
