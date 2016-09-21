@@ -29,7 +29,7 @@ spec:
 
 
       - name: secprov
-        image: lukaszbielinski/kubectl-image:0.20-secrets
+        image: lukaszbielinski/kubectl-image:0.20-configmap
         imagePullPolicy: Always
         volumeMounts:
         - name: markdown
