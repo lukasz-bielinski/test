@@ -26,8 +26,8 @@ spec:
 
       volumes:
       - name: secr
-        secret:
-          secretName: sec-ngx-1
+        emptyDir: {}
+
 
 ------------------------
 apiVersion: v1
