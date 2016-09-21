@@ -6,11 +6,11 @@ metadata:
   name: clairsvc
 spec:
   ports:
-    - port: 6060
-      protocol: TCP
+    - name: "0606"
+      port: 6060
       targetPort: 6060
-    - port: 6061
-      protocol: TCP
+    - name: "6061"
+      port: 6061
       targetPort: 6061
   externalIPs:
   - 192.168.1.181
