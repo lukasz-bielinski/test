@@ -29,7 +29,7 @@ spec:
           value: default
 
       - name: deployprov
-        image: lukaszbielinski/kubectl-image:0.11
+        image: lukaszbielinski/kubectl-image:0.12
         imagePullPolicy: Always
         volumeMounts:
         - name: markdown
