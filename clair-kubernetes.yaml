@@ -18,8 +18,8 @@ spec:
   selector:
     app: clair
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: "extensions/v1beta1"
+kind: "Deployment"
 metadata:
   name: clair
 spec:
@@ -35,7 +35,7 @@ spec:
           secretName: clairsecret
       containers:
       - name: clair
-        image: quay.io/coreos/clair
+        image: quay.io/coreos/clair:v1.2.4
         args:
           - "-config"
           - "/config/config.yaml"
