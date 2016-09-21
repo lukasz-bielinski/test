@@ -11,7 +11,8 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:0.5
+        image: lukaszbielinski/git-sync:0.6
+        imagePullPolicy: Always
         volumeMounts:
         - name: markdown
           mountPath: /git
