@@ -25,8 +25,7 @@ spec:
           value: "58"
         - name: GIT_SYNC_DEST
           value: /git
-        - name: NAMESPACE
-          value: 
+
 
       - name: deployprov
         image: lukaszbielinski/kubectl-image:0.12
@@ -36,7 +35,7 @@ spec:
           mountPath: /src
         env:
         - name: NAMESPACE
-          value: default
+          value: 
 
 
       volumes:
