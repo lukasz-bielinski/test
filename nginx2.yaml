@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: test
-        image: nginx:1.11
+        image: nginx:latest
         volumeMounts:
         - name: secr
           mountPath: /secr
