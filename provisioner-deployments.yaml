@@ -22,7 +22,7 @@ spec:
         - name: GIT_SYNC_REPO
           value: https://github.com/lukasz-bielinski/test
         - name: GIT_SYNC_WAIT
-          value: "10"
+          value: "58"
         - name: GIT_SYNC_DEST
           value: /git
         - name: NAMESPACE
