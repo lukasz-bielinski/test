@@ -7,9 +7,13 @@ metadata:
 spec:
   ports:
     - port: 6060
+      protocol: TCP
+      targetPort: 6060
     - port: 6061
+      protocol: TCP
+      targetPort: 6061
   externalIPs:
-  - 192.168.1.181    
+  - 192.168.1.181
   selector:
     app: clair
   selector:
