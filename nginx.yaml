@@ -39,7 +39,7 @@ metadata:
   namespace: ns-a
 spec:
   externalIPs:
-  - 192.168.1.15
+  - 192.168.1.181
   ports:
   - port: 8080
     protocol: TCP

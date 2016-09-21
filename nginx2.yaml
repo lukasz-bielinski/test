@@ -19,7 +19,7 @@ spec:
         lifecycle:
           preStop:
             exec:
-              # SIGTERM triggers a quick exit; gracefully terminate instead
+              # SIGTERM triggers a quick exit; gracefully terminate insteada
               command: ["/usr/sbin/nginx","-s","quit"]
 
 
