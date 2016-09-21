@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: provisioner-configmap
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: depcf
+    spec:
+      containers:
+      - name: git-sync
+        image: lukaszbielinski/git-sync:0.6
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: markdown
+          mountPath: /git
+        - name: klucze
+          mountPath: /root/.ssh/klucze
+        env:
+        - name: GIT_SYNC_REPO
+          value: https://github.com/lukasz-bielinski/test-configmap
+        - name: GIT_SYNC_WAIT
+          value: "5"
+        - name: GIT_SYNC_DEST
+          value: /git
+
+
+
+      - name: secprov
+        image: lukaszbielinski/kubectl-image:0.20-secrets
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: markdown
+          mountPath: /srcconfigmap
+
+      volumes:
+      - name: markdown
+        emptyDir: {}
+      - name: klucze
+        secret:
+          secretName: klucze
