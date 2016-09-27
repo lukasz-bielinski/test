@@ -27,7 +27,7 @@ spec:
           value: /git
 
 
-      - name: deployprov
+      - name: deployquota
         image: lukaszbielinski/kubectl-image:0.12
         imagePullPolicy: Always
         volumeMounts:
