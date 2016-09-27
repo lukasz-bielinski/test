@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-2
-  namespace: ns-a
+  namespace: ns-b
 spec:
   replicas: 1
   template:
