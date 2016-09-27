@@ -13,6 +13,13 @@ spec:
       containers:
       - name: test
         image: nginx:1.11.4
+        resources:
+          requests:
+            memory: "30Mi"
+            cpu: "41m"
+          limits:
+            memory: "100Mi"
+            cpu: "1000m"
         # volumeMounts:
         # - name: secr
         #   mountPath: /secr
