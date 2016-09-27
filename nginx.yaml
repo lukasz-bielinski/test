@@ -16,10 +16,10 @@ spec:
         resources:
           requests:
             memory: "30Mi"
-            cpu: "41m"
+            cpu: "1141m"
           limits:
             memory: "100Mi"
-            cpu: "1000m"
+            cpu: "2000m"
         # volumeMounts:
         # - name: secr
         #   mountPath: /secr
