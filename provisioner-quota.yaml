@@ -28,7 +28,7 @@ spec:
 
 
       - name: deployquota
-        image: lukaszbielinski/kubectl-image:0.6-quota
+        image: lukaszbielinski/kubectl-image:0.7-quota
         imagePullPolicy: Always
         volumeMounts:
         - name: markdown
