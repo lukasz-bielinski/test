@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: ns-a
 spec:
-  replicas: 190
+  replicas: 3
   template:
     metadata:
       labels:
