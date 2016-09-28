@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: ns-a
 spec:
-  replicas: 1
+  replicas: 10
   template:
     metadata:
       labels:
@@ -16,7 +16,7 @@ spec:
         resources:
           requests:
             memory: "30Mi"
-            cpu: "1141m"
+            cpu: "41m"
           limits:
             memory: "100Mi"
             cpu: "2000m"
