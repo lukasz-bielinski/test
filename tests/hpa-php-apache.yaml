@@ -9,6 +9,6 @@ spec:
     name: php-apache
     subresource: scale
   minReplicas: 1
-  maxReplicas: 33
+  maxReplicas: 34
   cpuUtilization:
     targetPercentage: 60
