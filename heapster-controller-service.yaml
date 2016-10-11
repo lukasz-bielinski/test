@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
-metadata: 
+metadata:
   name: heapster
   namespace: kube-system
-  labels: 
+  labels:
     kubernetes.io/cluster-service: "true"
     kubernetes.io/name: "Heapster"
-spec: 
-  ports: 
-    - port: 80
-      targetPort: 8082
-  selector: 
+spec:
+  # ports: 
+  #   - port: 80
+  #     targetPort: 8082
+  selector:
     k8s-app: heapster
