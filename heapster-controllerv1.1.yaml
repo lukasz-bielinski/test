@@ -8,7 +8,7 @@ metadata:
     k8s-app: heapster
     version: v1.1.0
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       k8s-app: heapster
