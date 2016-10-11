@@ -33,8 +33,9 @@ spec:
           command:
             - /heapster
             - --source=kubernetes.summary_api:''
-            - --sink_frequency=1m
-            - --stats_resolution=30s
+            - --model_resolution=5s
+            # - --sink_frequency=1m
+            # - --stats_resolution=30s
         - image: gcr.io/google_containers/addon-resizer:1.3
           name: heapster-nanny
           resources:
