@@ -23,7 +23,7 @@ spec:
         scheduler.alpha.kubernetes.io/tolerations: '[{"key":"CriticalAddonsOnly", "operator":"Exists"}]'
     spec:
       containers:
-        - image: gcr.io/google_containers/heapster:v1.1.0
+        - image: gcr.io/google_containers/heapster:v1.2.0
           name: heapster
           livenessProbe:
             httpGet:
@@ -48,7 +48,7 @@ spec:
             - name: ssl-certs
               mountPath: /etc/ssl/certs
               readOnly: true
-        - image: gcr.io/google_containers/heapster:v1.1.0
+        - image: gcr.io/google_containers/heapster:v1.2.0
           name: eventer
           resources:
             # keep request = limit to keep this container in guaranteed class
