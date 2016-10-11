@@ -1,131 +1,131 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: heapster-v1.2.0
-  namespace: kube-system
-  labels:
-    k8s-app: heapster
-    kubernetes.io/cluster-service: "true"
-    version: v1.2.0
-spec:
-  replicas: 0
-  selector:
-    matchLabels:
-      k8s-app: heapster
-      version: v1.2.0
-  template:
-    metadata:
-      labels:
-        k8s-app: heapster
-        version: v1.2.0
-      annotations:
-        scheduler.alpha.kubernetes.io/critical-pod: ''
-        scheduler.alpha.kubernetes.io/tolerations: '[{"key":"CriticalAddonsOnly", "operator":"Exists"}]'
-    spec:
-      containers:
-        - image: gcr.io/google_containers/heapster:v1.2.0
-          name: heapster
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 8082
-              scheme: HTTP
-            initialDelaySeconds: 180
-            timeoutSeconds: 5
-          resources:
-            # keep request = limit to keep this container in guaranteed class
-            limits:
-              cpu: 100m
-              memory: 250Mi
-            requests:
-              cpu: 100m
-              memory: 250Mi
-          command:
-            - /heapster
-            - --source=kubernetes.summary_api:''
-            - --sink_frequency=1m
-            - --stats_resolution=30s
-          volumeMounts:
-            - name: ssl-certs
-              mountPath: /etc/ssl/certs
-              readOnly: true
-        - image: gcr.io/google_containers/heapster:v1.2.0
-          name: eventer
-          resources:
-            # keep request = limit to keep this container in guaranteed class
-            limits:
-              cpu: 100m
-              memory: 190Mi
-            requests:
-              cpu: 100m
-              memory: 190Mi
-          command:
-            - /eventer
-            - --source=kubernetes:''
-            - --sink=gcl
-          volumeMounts:
-            - name: ssl-certs
-              mountPath: /etc/ssl/certs
-              readOnly: true
-        - image: gcr.io/google_containers/addon-resizer:1.6
-          name: heapster-nanny
-          resources:
-            limits:
-              cpu: 50m
-              memory: 200Mi
-            requests:
-              cpu: 50m
-              memory: 200Mi
-          env:
-            - name: MY_POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
-            - name: MY_POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
-          command:
-            - /pod_nanny
-            - --cpu=50m
-            - --extra-cpu=2m
-            - --memory=200Mi
-            - --extra-memory=5Mi
-            - --threshold=5
-            - --deployment=heapster-v1.2.0
-            - --container=heapster
-            - --poll-period=300000
-            - --estimator=exponential
-        - image: gcr.io/google_containers/addon-resizer:1.6
-          name: eventer-nanny
-          resources:
-            limits:
-              cpu: 50m
-              memory: 200Mi
-            requests:
-              cpu: 50m
-              memory: 200Mi
-          env:
-            - name: MY_POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
-            - name: MY_POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
-          command:
-            - /pod_nanny
-            - --cpu=100m
-            - --extra-cpu=0m
-            - --memory=190Mi
-            - --extra-memory=1Mi
-            - --threshold=5
-            - --deployment=heapster-v1.2.0
-            - --container=eventer
-            - --poll-period=300000
-            - --estimator=exponential
-      volumes:
-        - name: ssl-certs
-          hostPath:
-            path: "/etc/ssl/certs"
+# apiVersion: extensions/v1beta1
+# kind: Deployment
+# metadata:
+#   name: heapster-v1.2.0
+#   namespace: kube-system
+#   labels:
+#     k8s-app: heapster
+#     kubernetes.io/cluster-service: "true"
+#     version: v1.2.0
+# spec:
+#   replicas: 0
+#   selector:
+#     matchLabels:
+#       k8s-app: heapster
+#       version: v1.2.0
+#   template:
+#     metadata:
+#       labels:
+#         k8s-app: heapster
+#         version: v1.2.0
+#       annotations:
+#         scheduler.alpha.kubernetes.io/critical-pod: ''
+#         scheduler.alpha.kubernetes.io/tolerations: '[{"key":"CriticalAddonsOnly", "operator":"Exists"}]'
+#     spec:
+#       containers:
+#         - image: gcr.io/google_containers/heapster:v1.2.0
+#           name: heapster
+#           livenessProbe:
+#             httpGet:
+#               path: /healthz
+#               port: 8082
+#               scheme: HTTP
+#             initialDelaySeconds: 180
+#             timeoutSeconds: 5
+#           resources:
+#             # keep request = limit to keep this container in guaranteed class
+#             limits:
+#               cpu: 100m
+#               memory: 250Mi
+#             requests:
+#               cpu: 100m
+#               memory: 250Mi
+#           command:
+#             - /heapster
+#             - --source=kubernetes.summary_api:''
+#             - --sink_frequency=1m
+#             - --stats_resolution=30s
+#           volumeMounts:
+#             - name: ssl-certs
+#               mountPath: /etc/ssl/certs
+#               readOnly: true
+#         - image: gcr.io/google_containers/heapster:v1.2.0
+#           name: eventer
+#           resources:
+#             # keep request = limit to keep this container in guaranteed class
+#             limits:
+#               cpu: 100m
+#               memory: 190Mi
+#             requests:
+#               cpu: 100m
+#               memory: 190Mi
+#           command:
+#             - /eventer
+#             - --source=kubernetes:''
+#             - --sink=gcl
+#           volumeMounts:
+#             - name: ssl-certs
+#               mountPath: /etc/ssl/certs
+#               readOnly: true
+#         - image: gcr.io/google_containers/addon-resizer:1.6
+#           name: heapster-nanny
+#           resources:
+#             limits:
+#               cpu: 50m
+#               memory: 200Mi
+#             requests:
+#               cpu: 50m
+#               memory: 200Mi
+#           env:
+#             - name: MY_POD_NAME
+#               valueFrom:
+#                 fieldRef:
+#                   fieldPath: metadata.name
+#             - name: MY_POD_NAMESPACE
+#               valueFrom:
+#                 fieldRef:
+#                   fieldPath: metadata.namespace
+#           command:
+#             - /pod_nanny
+#             - --cpu=50m
+#             - --extra-cpu=2m
+#             - --memory=200Mi
+#             - --extra-memory=5Mi
+#             - --threshold=5
+#             - --deployment=heapster-v1.2.0
+#             - --container=heapster
+#             - --poll-period=300000
+#             - --estimator=exponential
+#         - image: gcr.io/google_containers/addon-resizer:1.6
+#           name: eventer-nanny
+#           resources:
+#             limits:
+#               cpu: 50m
+#               memory: 200Mi
+#             requests:
+#               cpu: 50m
+#               memory: 200Mi
+#           env:
+#             - name: MY_POD_NAME
+#               valueFrom:
+#                 fieldRef:
+#                   fieldPath: metadata.name
+#             - name: MY_POD_NAMESPACE
+#               valueFrom:
+#                 fieldRef:
+#                   fieldPath: metadata.namespace
+#           command:
+#             - /pod_nanny
+#             - --cpu=100m
+#             - --extra-cpu=0m
+#             - --memory=190Mi
+#             - --extra-memory=1Mi
+#             - --threshold=5
+#             - --deployment=heapster-v1.2.0
+#             - --container=eventer
+#             - --poll-period=300000
+#             - --estimator=exponential
+#       volumes:
+#         - name: ssl-certs
+#           hostPath:
+#             path: "/etc/ssl/certs"
