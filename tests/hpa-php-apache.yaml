@@ -8,7 +8,7 @@ spec:
     kind: Deployment
     name: php-apache
     subresource: scale
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 10
   cpuUtilization:
     targetPercentage: 51
