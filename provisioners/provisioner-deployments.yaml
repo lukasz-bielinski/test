@@ -39,11 +39,11 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "5Mi"
-            cpu: "1m"
+            memory: "15Mi"
+            cpu: "10m"
           limits:
             memory: "50Mi"
-            cpu: "10m"
+            cpu: "20m"
         volumeMounts:
         - name: markdown
           mountPath: /src
