@@ -89,10 +89,10 @@ spec:
           resources:
             limits:
               cpu: 50m
-              memory: {{ nanny_memory }}
+              memory: 200Mi
             requests:
               cpu: 50m
-              memory: {{ nanny_memory }}
+              memory: 200Mi
           env:
             - name: MY_POD_NAME
               valueFrom:
@@ -104,10 +104,10 @@ spec:
                   fieldPath: metadata.namespace
           command:
             - /pod_nanny
-            - --cpu={{ base_metrics_cpu }}
-            - --extra-cpu={{ metrics_cpu_per_node }}m
-            - --memory={{ base_metrics_memory }}
-            - --extra-memory={{metrics_memory_per_node}}Mi
+            - --cpu=50m
+            - --extra-cpu=2m
+            - --memory=200Mi
+            - --extra-memory=5Mi
             - --threshold=5
             - --deployment=heapster-v1.2.0
             - --container=heapster
@@ -118,10 +118,10 @@ spec:
           resources:
             limits:
               cpu: 50m
-              memory: {{ nanny_memory }}
+              memory: 200Mi
             requests:
               cpu: 50m
-              memory: {{ nanny_memory }}
+              memory: 
           env:
             - name: MY_POD_NAME
               valueFrom:
