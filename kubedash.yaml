@@ -22,13 +22,29 @@
             command:
               - "/kubedash"
               - "--headless=true"
-              - "--heapster_url=http://heapster:80"
+              - "--heapster_url=http://localhost:8082"
             resources:
               limits:
                 cpu: 50m
                 memory: 100Mi
-
-
+            volumeMounts:
+              - name: "ssl-certs"
+                mountPath: "/etc/ssl/certs"
+                readOnly: true
+          - image: gcr.io/google_containers/heapster:v1.1.0
+            name: "heapster"
+            resources:
+              limits:
+                cpu: 100m
+                memory: 300Mi
+              requests:
+                cpu: 100m
+                memory: 300Mi
+            command:
+              - "/heapster"
+              - "--source=kubernetes:https://10.3.0.1:443:443?useServiceAccount=true&auth=&insecure=true"
+              - "--stats_resolution=30s"
+              - "--sink_frequency=1m"
 
 ---
   apiVersion: "v1"

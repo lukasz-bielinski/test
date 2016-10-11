@@ -43,7 +43,8 @@ spec:
           command:
             - /heapster
             - --source=kubernetes.summary_api:''
-            - --sink=gcm
+            - --sink_frequency=1m
+            - --stats_resolution=30s
           volumeMounts:
             - name: ssl-certs
               mountPath: /etc/ssl/certs
