@@ -8,7 +8,7 @@ metadata:
     k8s-app: heapster
     version: v1.1.0
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       k8s-app: heapster
@@ -33,6 +33,8 @@ spec:
           command:
             - /heapster
             - --source=kubernetes.summary_api:''
+            - --sink_frequency=1m
+            - --stats_resolution=30s
         - image: gcr.io/google_containers/addon-resizer:1.3
           name: heapster-nanny
           resources:
