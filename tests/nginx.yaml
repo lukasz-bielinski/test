@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: test
-        image: nginx:1.11
+        image: nginx:1.11.3-alpine
         resources:
           requests:
             memory: "1Mi"
