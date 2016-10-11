@@ -8,7 +8,10 @@ spec:
     kind: Deployment
     name: php-apache
     subresource: scale
-  minReplicas: 1
-  maxReplicas: 34
+  minReplicas: 2
+  maxReplicas: 10
   cpuUtilization:
-    targetPercentage: 60
+    targetPercentage: 51
+
+
+#should be recreated NOT kubectl apply
