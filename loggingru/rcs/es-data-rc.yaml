@@ -27,7 +27,7 @@ spec:
         image: quay.io/pires/docker-elasticsearch-kubernetes:2.4.0
         resources:
                 requests:
-                  cpu: 10m
+                  # cpu: 10m
                   memory: 1000Mi
                 limits:
                   cpu: 1000m
@@ -65,13 +65,13 @@ spec:
           name: transport
           protocol: TCP
 
-        lifecycle:
-          postStart:
-            exec:
-              command: ["/bin/sh","/hooks/poststart.sh"]
-          preStop:
-            exec:
-              command: ["/bin/bash","/hooks/prestop.sh"]
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command: ["/bin/sh","/hooks/poststart.sh"]
+        #   preStop:
+        #     exec:
+        #       command: ["/bin/bash","/hooks/prestop.sh"]
 
         livenessProbe:
           tcpSocket:
