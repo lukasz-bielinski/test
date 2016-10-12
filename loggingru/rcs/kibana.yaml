@@ -22,7 +22,7 @@ spec:
         image: kibana:4.6.1
         resources:
                 requests:
-                  cpu: 100m
+                  cpu: 10m
                   memory: 100Mi
                 limits:
                   cpu: 1000m
