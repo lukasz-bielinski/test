@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: curator
+  namespace: loggingru
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: curator
+    spec:
+      containers:
+      - name: curator
+        image:  lukaszbielinski/curator-cron:3.5_4
+        imagePullPolicy: Always
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: "elasticsearch.loggingru"
+        - name: TTL
+          value: "7"
+        resources:
+          limits:
+            cpu: 500m
+            memory: "700Mi"
+          requests:
+            cpu: 50m
+            memory: 50Mi

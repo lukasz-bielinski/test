@@ -1,0 +1,60 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: provisioner
+  namespace: loggingru
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: provisioner
+    spec:
+      containers:
+      - name: git-sync
+        image: lukaszbielinski/git-sync:0.6
+        resources:
+          limits:
+            cpu: 500m
+            memory: "700Mi"
+          requests:
+            cpu: 50m
+            memory: 50Mi
+        volumeMounts:
+        - name: markdown
+          mountPath: /git
+        - name: secr
+          mountPath: /root/.ssh/klucze
+        env:
+        - name: GIT_SYNC_REPO
+          value: ssh://git@bitbucket.otlabs.fr/htz/htz-k8s-deployments.git
+        - name: GIT_SYNC_WAIT
+          value: "5"
+        - name: GIT_SYNC_DEST
+          value: /git
+
+      - name: kubectl-image
+        image: lukaszbielinski/kubectl-image:0.12
+        resources:
+          limits:
+            cpu: 500m
+            memory: "700Mi"
+          requests:
+            cpu: 50m
+            memory: 50Mi
+        env:
+        - name: NAMESPACE
+          value: loggingru
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: markdown
+          mountPath: /src
+
+      volumes:
+      - name: markdown
+        emptyDir: {}
+      - name: secr
+        secret:
+          secretName: bb
+      nodeSelector:
+          zone: "be-prod"
