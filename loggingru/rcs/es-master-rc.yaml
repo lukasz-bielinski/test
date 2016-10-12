@@ -92,7 +92,7 @@ spec:
         - name: hooks
           mountPath: /hooks
 
-      terminationGracePeriodSeconds: 1800
+      terminationGracePeriodSeconds: 90
       volumes:
         - name: storage
           emptyDir: {}
