@@ -1,41 +1,38 @@
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
-  name: fluentd-elasticsearch
-  namespace: loggingru
+  name: fluentd-logging
   labels:
-    k8s-app: fluentd-logging
+    tier: monitoring
+    app: fluentd-agent
 spec:
   template:
     metadata:
       labels:
-        app: datastore-shard
-spec:
-  containers:
-  - name: fluentd-elasticsearch
-    image: gcr.io/google_containers/fluentd-elasticsearch:1.19
-    resources:
-      limits:
-        memory: 200Mi
-      requests:
-        cpu: 100m
-        memory: 200Mi
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-    - name: varlibdockercontainers
-      mountPath: /var/lib/docker/containers
-      readOnly: true
-    - name: fluentd
-      mountPath: /etc/td-agent
-  terminationGracePeriodSeconds: 30
-  volumes:
-  - name: varlog
-    hostPath:
-      path: /var/log
-  - name: varlibdockercontainers
-    hostPath:
-      path: /var/lib/docker/containers
-  - name: fluentd
-    secret:
-      secretName: fluentd
+        name: fluentd
+    spec:
+      # Filter to specific nodes:
+      # nodeSelector:
+      #  app: newrelic
+      containers:
+          - name: fluentd
+            image: "gcr.io/google_containers/fluentd-elasticsearch:1.19"
+            volumeMounts:
+              - name: varlog
+                mountPath: /var/log
+              - name: varlibdockercontainers
+                mountPath: /var/lib/docker/containers
+                readOnly: true
+              - name: fluentd
+                mountPath: /etc/td-agent
+
+      volumes:
+       - name: fluentd
+         secret:
+           secretName: fluentd
+       - name: varlog
+         hostPath:
+           path: /var/log
+       - name: varlibdockercontainers
+         hostPath:
+           path: /var/lib/docker/containers
