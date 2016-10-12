@@ -92,7 +92,7 @@ spec:
           mountPath: /hooks
       nodeSelector:
           zone: "be-prod"
-      terminationGracePeriodSeconds: 600
+      terminationGracePeriodSeconds: 60
       volumes:
       - name: storage
         emptyDir: {}

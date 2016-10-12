@@ -95,7 +95,7 @@ spec:
           initialDelaySeconds: 30
           timeoutSeconds: 5
 
-      terminationGracePeriodSeconds: 600
+      terminationGracePeriodSeconds: 60
       volumes:
       - name: storage
         emptyDir: {}
