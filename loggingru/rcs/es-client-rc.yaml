@@ -69,13 +69,13 @@ spec:
           name: transport
           protocol: TCP
 
-        # lifecycle:
-        #   postStart:
-        #     exec:
-        #       command: ["/bin/sh","/hooks/poststart.sh"]
-        #   preStop:
-        #     exec:
-        #       command: ["/bin/bash","/hooks/prestop.sh"]
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","/hooks/poststart.sh"]
+          preStop:
+            exec:
+              command: ["/bin/bash","/hooks/prestop.sh"]
 
         volumeMounts:
         - mountPath: /data
@@ -95,7 +95,7 @@ spec:
           initialDelaySeconds: 30
           timeoutSeconds: 5
 
-      terminationGracePeriodSeconds: 60
+      # terminationGracePeriodSeconds: 60
       volumes:
       - name: storage
         emptyDir: {}

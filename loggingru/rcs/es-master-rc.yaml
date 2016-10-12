@@ -65,13 +65,13 @@ spec:
           name: transport
           protocol: TCP
 
-        # lifecycle:
-        #   postStart:
-        #     exec:
-        #       command: ["/bin/sh","/hooks/poststart.sh"]
-        #   preStop:
-        #     exec:
-        #       command: ["/bin/bash","/hooks/prestop.sh"]
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","/hooks/poststart.sh"]
+          preStop:
+            exec:
+              command: ["/bin/bash","/hooks/prestop.sh"]
 
         livenessProbe:
           tcpSocket:
@@ -91,7 +91,7 @@ spec:
         - name: hooks
           mountPath: /hooks
 
-      terminationGracePeriodSeconds: 60
+      # terminationGracePeriodSeconds: 60
       volumes:
         - name: storage
           emptyDir: {}
