@@ -6,6 +6,11 @@ metadata:
   labels:
     k8s-app: fluentd-logging
 spec:
+  template:
+    metadata:
+      labels:
+        app: datastore-shard
+spec:
   containers:
   - name: fluentd-elasticsearch
     image: gcr.io/google_containers/fluentd-elasticsearch:1.19
@@ -25,13 +30,12 @@ spec:
       mountPath: /etc/td-agent
   terminationGracePeriodSeconds: 30
   volumes:
-    - name: fluentd
-      secret:
-        secretName: fluentd
-  volumes:
   - name: varlog
     hostPath:
       path: /var/log
   - name: varlibdockercontainers
     hostPath:
       path: /var/lib/docker/containers
+  - name: fluentd
+    secret:
+      secretName: fluentd
