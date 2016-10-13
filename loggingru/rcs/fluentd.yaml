@@ -27,6 +27,8 @@ spec:
             env:
               - name: ELASTICSEARCH_HOST
                 value: elasticsearch.loggingru
+              - name: ELASTICSEARCH_PORT
+                value: 9200   
 
       terminationGracePeriodSeconds: 30
       volumes:
