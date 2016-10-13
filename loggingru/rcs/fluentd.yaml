@@ -17,7 +17,7 @@ spec:
       #  app: newrelic
       containers:
           - name: fluentd
-            image: "gcr.io/google_containers/fluentd-elasticsearch:1.15"
+            image: "gcr.io/google_containers/fluentd-elasticsearch:1.19"
             volumeMounts:
               - name: varlog
                 mountPath: /var/log
