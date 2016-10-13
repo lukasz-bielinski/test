@@ -26,7 +26,7 @@ spec:
                 readOnly: true
             env:
               - name: ELASTICSEARCH_HOST
-                value: 192.168.1.180
+                value: elasticsearch.loggingru
 
       terminationGracePeriodSeconds: 30
       volumes:
