@@ -28,7 +28,9 @@ spec:
               - name: ELASTICSEARCH_HOST
                 value: elasticsearch.loggingru
               - name: ELASTICSEARCH_PORT
-                value: "9200"   
+                value: "9200"
+              - name: ELASTICSEARCH_DYNAMIC
+                value: true  
 
       terminationGracePeriodSeconds: 30
       volumes:
