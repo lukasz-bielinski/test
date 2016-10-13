@@ -17,7 +17,7 @@ spec:
       #  app: newrelic
       containers:
           - name: fluentd
-            image: lukaszbielinski/docker-fluentd-kubernetes:0.3
+            image: lukaszbielinski/docker-fluentd-kubernetes:0.4
             volumeMounts:
               - name: varlog
                 mountPath: /var/log
@@ -30,7 +30,7 @@ spec:
               - name: ELASTICSEARCH_PORT
                 value: "9200"
               - name: ELASTICSEARCH_DYNAMIC
-                value: true  
+                value: true
 
       terminationGracePeriodSeconds: 30
       volumes:
