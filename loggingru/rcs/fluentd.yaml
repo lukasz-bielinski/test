@@ -17,7 +17,7 @@ spec:
       #  app: newrelic
       containers:
           - name: fluentd
-            image: lukaszbielinski/docker-fluentd-kubernetes:0.2
+            image: lukaszbielinski/docker-fluentd-kubernetes:0.3
             volumeMounts:
               - name: varlog
                 mountPath: /var/log
