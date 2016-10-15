@@ -40,7 +40,9 @@ spec:
           - '-storage.local.retention=6h'
           - '-storage.local.memory-chunks=500000'
           - '-config.file=/etc/prometheus/prometheus.yml'
-          - '-cafile=/etc/prometheus/ca.file'      
+        env:
+        - name: CAFile
+          value: "/etc/prometheus/ca.file"
         ports:
         - name: web
           containerPort: 9090
