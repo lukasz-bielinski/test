@@ -29,7 +29,7 @@ spec:
         - name: GIT_SYNC_REPO
           value: https://github.com/lukasz-bielinski/test-quota
         - name: GIT_SYNC_WAIT
-          value: "2"
+          value: "12"
         - name: GIT_SYNC_DEST
           value: /git
 
