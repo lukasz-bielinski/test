@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: deployquota
+        run: provisioner-quota
     spec:
       containers:
       - name: git-sync
@@ -34,7 +34,7 @@ spec:
           value: /git
 
 
-      - name: deployquota
+      - name: prov
         image: lukaszbielinski/kubectl-image:0.12-quota
         imagePullPolicy: Always
         resources:

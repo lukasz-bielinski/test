@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: depcf
+        run: provisioner-configmap
     spec:
       containers:
       - name: git-sync
@@ -35,7 +35,7 @@ spec:
 
 
 
-      - name: secprov
+      - name: prov
         image: lukaszbielinski/kubectl-image:0.20-configmap
         imagePullPolicy: Always
         resources:

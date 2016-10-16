@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: deployprov
+        run: provisioner-deployments
     spec:
       containers:
       - name: git-sync
@@ -34,7 +34,7 @@ spec:
           value: /git
 
 
-      - name: deployprov
+      - name: prov
         image: lukaszbielinski/kubectl-image:0.13
         imagePullPolicy: Always
         resources:
