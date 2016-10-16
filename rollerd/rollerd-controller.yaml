@@ -6,7 +6,7 @@ metadata:
   name: rollerd
   namespace: default
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     app: rollerd
   template:
