@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: provisioner-quota
+        run: provquota
     spec:
       containers:
       - name: git-sync

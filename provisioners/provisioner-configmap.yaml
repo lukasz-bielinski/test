@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        run: provisioner-configmap
+        run: provconfigmap
     spec:
       containers:
       - name: git-sync
