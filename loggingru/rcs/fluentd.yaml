@@ -24,6 +24,8 @@ spec:
               - name: varlibdockercontainers
                 mountPath: /var/lib/docker/containers
                 readOnly: true
+              - name: fluentd
+                mountPath: /etc/td-agent
             env:
               - name: ELASTICSEARCH_HOST
                 value: elasticsearch.loggingru
