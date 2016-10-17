@@ -55,7 +55,7 @@ spec:
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: "NUMBER_OF_REPLICAS"
-          value: "3"
+          value: "2"
         - name: "NUMBER_OF_SHARDS"
           value: "2"
         - name: ELASTICSEARCH_HOST
