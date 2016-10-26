@@ -16,7 +16,7 @@
   "kind": "Node",
   "apiVersion": "v1",
   "metadata": {
-    "name": "192.168.1.161",
+    "name": "192.168.1.150",
     "labels": {
       "zona": "proda"
     }
