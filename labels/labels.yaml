@@ -4,23 +4,21 @@
   "metadata": {
     "name": "192.168.1.160",
     "labels": {
-      "name": "my-first-k8s-node"
+      "name": "12344",
+      "elastics": "ddd"
     }
   }
 }
 
-
 ---
-
-
 
 {
   "kind": "Node",
   "apiVersion": "v1",
   "metadata": {
-    "name": "10.240.79.157",
+    "name": "192.168.1.161",
     "labels": {
-      "name": "my-first-k8s-node"
+      "zona": "proda"
     }
   }
 }
