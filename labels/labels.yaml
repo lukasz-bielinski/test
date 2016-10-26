@@ -4,7 +4,7 @@
   "metadata": {
     "name": "192.168.1.160",
     "labels": {
-      "name": "123441"
+      "name": "my-first-k8s-node"
     }
   }
 }
@@ -17,20 +17,7 @@
   "metadata": {
     "name": "192.168.1.161",
     "labels": {
-      "zona": "prodda"
-    }
-  }
-}
-
----
-
-{
-  "kind": "Node",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "192.168.1.150",
-    "labels": {
-      "zone": "admin"
+      "name": "my-first-k8s-node"
     }
   }
 }
