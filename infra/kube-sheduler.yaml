@@ -34,3 +34,6 @@ spec:
             port: 10251
           initialDelaySeconds: 15
           timeoutSeconds: 1
+
+      nodeSelector:
+          zone: "admin"
