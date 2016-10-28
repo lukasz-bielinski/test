@@ -49,3 +49,6 @@ spec:
       - name: ssl
         secret:
           secretName: ssl
+
+      nodeSelector:
+          zone: "admin"          
