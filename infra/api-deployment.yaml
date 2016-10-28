@@ -18,7 +18,6 @@ spec:
       labels:
         app: kube-apiserver
     spec:
-      hostNetwork: true
       containers:
       - name: kube-apiserver
         image: quay.io/coreos/hyperkube:v1.4.1_coreos.0
