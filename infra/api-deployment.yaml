@@ -56,7 +56,3 @@ spec:
       - hostPath:
           path: /usr/share/ca-certificates
         name: ssl-certs-host
-
-
-      nodeSelector:
-          zone: "admin"
