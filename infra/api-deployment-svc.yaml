@@ -1,22 +1,22 @@
-kind: Service
-apiVersion: v1
-metadata:
-  labels:
-    app: kube-apiserver
-  name: kube-apiserver
-  namespace: kube-system
-spec:
-  externalIPs:
-  - 192.168.1.151
-  - 192.168.1.152
-
-
-  ports:
-  - name: p8080
-    port: 8080
-    targetPort: 8080
-  - name: p443
-    port: 443
-    targetPort: 443
-  selector:
-    app: kube-apiserver
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   labels:
+#     app: kube-apiserver
+#   name: kube-apiserver
+#   namespace: kube-system
+# spec:
+#   externalIPs:
+#   - 192.168.1.151
+#   - 192.168.1.152
+#
+#
+#   ports:
+#   - name: p8080
+#     port: 8080
+#     targetPort: 8080
+#   - name: p443
+#     port: 443
+#     targetPort: 443
+#   selector:
+#     app: kube-apiserver
