@@ -3,22 +3,13 @@ kind: DaemonSet
 metadata:
   name: kube-apiserver
   namespace: kube-system
+
 spec:
-  replicas: 0
-  strategy:
-      rollingUpdate:
-        maxUnavailable: 1
-        maxSurge: 0
-  selector:
-    matchLabels:
-      app: kube-apiserver
   template:
     metadata:
-      name: kube-apiserver
       labels:
-        app: kube-apiserver
+        name: kube-apiserver
     spec:
-      hostNetwork: true
       containers:
       - name: kube-apiserver
         image: quay.io/coreos/hyperkube:v1.4.3_coreos.0
@@ -58,6 +49,3 @@ spec:
       - name: ssl
         secret:
           secretName: ssl
-
-      nodeSelector:
-          zone: admin

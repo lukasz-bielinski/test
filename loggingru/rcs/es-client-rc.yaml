@@ -104,4 +104,4 @@ spec:
         secret:
           secretName: hooks
       nodeSelector:
-          zone: "be-prod"
+          zone: admin
