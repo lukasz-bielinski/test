@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: kube-apiserver
-        image: quay.io/coreos/hyperkube:v1.4.3_coreos.0
+        image: quay.io/coreos/hyperkube:v1.4.1_coreos.0
         command:
         - /hyperkube
         - apiserver
