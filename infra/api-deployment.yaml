@@ -45,14 +45,14 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: 8081
           initialDelaySeconds: 30
           timeoutSeconds: 3
 
         readinessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: 8081
           initialDelaySeconds: 30
           timeoutSeconds: 3
 
