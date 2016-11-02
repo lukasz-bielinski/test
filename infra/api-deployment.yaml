@@ -1,68 +1,68 @@
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: kube-apiserver
-  namespace: kube-system
-
-spec:
-  template:
-    metadata:
-      labels:
-        name: kube-apiserver
-    spec:
-      containers:
-      - name: kube-apiserver
-        image: quay.io/coreos/hyperkube:v1.4.4_coreos.0
-        command:
-        - /hyperkube
-        - apiserver
-        - --bind-address=0.0.0.0
-        - --insecure-bind-address=0.0.0.0
-        - --etcd-servers=http://192.168.1.145:2379,http://192.168.1.146:2379,http://192.168.1.147:2379
-        - --allow-privileged=true
-        - --service-cluster-ip-range=10.3.0.0/24
-        - --secure-port=443
-        - --admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
-        - --tls-cert-file=/etc/kubernetes/ssl/apiserver.pem
-        - --tls-private-key-file=/etc/kubernetes/ssl/apiserver-key.pem
-        - --client-ca-file=/etc/kubernetes/ssl/ca.pem
-        - --service-account-key-file=/etc/kubernetes/ssl/apiserver-key.pem
-        ports:
-        - containerPort: 443
-          hostPort: 443
-          name: https
-        - containerPort: 8080
-          hostPort: 8080
-          name: local
-        volumeMounts:
-        - mountPath: /etc/kubernetes/ssl
-          name: ssl
-          readOnly: true
-        - mountPath: /etc/ssl/certs
-          name: ssl-certs-host
-          readOnly: true
-
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 30
-          timeoutSeconds: 3
-
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 30
-          timeoutSeconds: 3
-
-      volumes:
-      - hostPath:
-          path: /usr/share/ca-certificates
-        name: ssl-certs-host
-      - name: ssl
-        secret:
-          secretName: ssl
-
-      nodeSelector:
-          zone: "admin"
+# apiVersion: extensions/v1beta1
+# kind: DaemonSet
+# metadata:
+#   name: kube-apiserver
+#   namespace: kube-system
+#
+# spec:
+#   template:
+#     metadata:
+#       labels:
+#         name: kube-apiserver
+#     spec:
+#       containers:
+#       - name: kube-apiserver
+#         image: quay.io/coreos/hyperkube:v1.4.4_coreos.0
+#         command:
+#         - /hyperkube
+#         - apiserver
+#         - --bind-address=0.0.0.0
+#         - --insecure-bind-address=0.0.0.0
+#         - --etcd-servers=http://192.168.1.145:2379,http://192.168.1.146:2379,http://192.168.1.147:2379
+#         - --allow-privileged=true
+#         - --service-cluster-ip-range=10.3.0.0/24
+#         - --secure-port=443
+#         - --admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
+#         - --tls-cert-file=/etc/kubernetes/ssl/apiserver.pem
+#         - --tls-private-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+#         - --client-ca-file=/etc/kubernetes/ssl/ca.pem
+#         - --service-account-key-file=/etc/kubernetes/ssl/apiserver-key.pem
+#         ports:
+#         - containerPort: 443
+#           hostPort: 443
+#           name: https
+#         - containerPort: 8080
+#           hostPort: 8080
+#           name: local
+#         volumeMounts:
+#         - mountPath: /etc/kubernetes/ssl
+#           name: ssl
+#           readOnly: true
+#         - mountPath: /etc/ssl/certs
+#           name: ssl-certs-host
+#           readOnly: true
+#
+#         livenessProbe:
+#           httpGet:
+#             path: /
+#             port: 8080
+#           initialDelaySeconds: 30
+#           timeoutSeconds: 3
+#
+#         readinessProbe:
+#           httpGet:
+#             path: /
+#             port: 8080
+#           initialDelaySeconds: 30
+#           timeoutSeconds: 3
+#
+#       volumes:
+#       - hostPath:
+#           path: /usr/share/ca-certificates
+#         name: ssl-certs-host
+#       - name: ssl
+#         secret:
+#           secretName: ssl
+#
+#       nodeSelector:
+#           zone: "admin"
