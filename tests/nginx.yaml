@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: ns-a
 spec:
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
@@ -46,7 +46,7 @@ metadata:
   namespace: ns-a
 spec:
   externalIPs:
-  - 192.168.1.181
+  - 192.168.1.161
   ports:
   - port: 8080
     protocol: TCP
