@@ -52,6 +52,4 @@ spec:
             - name: ADVERT
               value: "1"
             - name: AUTHPASS
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
+              value: pas123
