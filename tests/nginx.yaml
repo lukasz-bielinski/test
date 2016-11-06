@@ -36,7 +36,9 @@ spec:
         emptyDir: {}
 
 
-------------------------
+---
+
+  
 apiVersion: v1
 kind: Service
 metadata:
@@ -57,7 +59,3 @@ spec:
   type: LoadBalancer
 status:
   loadBalancer: {}
-
-
-
-aasa
