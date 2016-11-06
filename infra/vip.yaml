@@ -52,4 +52,4 @@ spec:
             - name: ADVERT
               value: "1"
             - name: AUTHPASS
-              value: "pass123"
+              value: "c4b1a603092ec2e7e9fb995f57ebd659"
