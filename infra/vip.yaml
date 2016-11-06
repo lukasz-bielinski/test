@@ -23,7 +23,7 @@ spec:
 
       containers:
         - name: keepalived-vip
-          image: oberthur/docker-keepalived:20160917
+          image: lukaszbielinski/docker-keepalived:latest
           imagePullPolicy: IfNotPresent
           securityContext:
             capabilities:
