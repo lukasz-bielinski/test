@@ -22,6 +22,8 @@ spec:
             memory: "1000Mi"
             cpu: "700m"
 
+      terminationGracePeriodSeconds: 1
+
 
 
 #
