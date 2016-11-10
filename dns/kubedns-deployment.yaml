@@ -52,7 +52,7 @@ spec:
           # "burstable" category so the kubelet doesn't backoff from restarting it.
           limits:
             memory: 200Mi
-           cpu: 100m
+            cpu: 100m
           requests:
             cpu: 100m
             memory: 200Mi
