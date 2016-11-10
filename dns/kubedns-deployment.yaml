@@ -46,15 +46,12 @@ spec:
       - name: kubedns
         image: gcr.io/google_containers/kubedns-amd64:1.8
         resources:
-          # TODO: Set memory limits when we've profiled the container for large
-          # clusters, then set request = limit to keep this container in
-          # guaranteed class. Currently, this container falls into the
-          # "burstable" category so the kubelet doesn't backoff from restarting it.
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
+                requests:
+                  cpu: 100m
+                  memory: 200Mi
+                limits:
+                  cpu: 100m
+                  memory: 200Mi
         livenessProbe:
           httpGet:
             path: /healthz-kubedns
@@ -86,12 +83,13 @@ spec:
           protocol: TCP
       - name: dnsmasq
         image: gcr.io/google_containers/kube-dnsmasq-amd64:1.4
-        limits:
-          memory: 200Mi
-          cpu: 100m
-        requests:
-          cpu: 100m
-          memory: 200Mi
+        resources:
+                requests:
+                  cpu: 100m
+                  memory: 200Mi
+                limits:
+                  cpu: 100m
+                  memory: 200Mi
         livenessProbe:
           httpGet:
             path: /healthz-dnsmasq
@@ -116,15 +114,12 @@ spec:
       - name: healthz
         image: gcr.io/google_containers/exechealthz-amd64:1.2
         resources:
-          limits:
-            memory: 50Mi
-          requests:
-            cpu: 10m
-            # Note that this container shouldn't really need 50Mi of memory. The
-            # limits are set higher than expected pending investigation on #29688.
-            # The extra memory was stolen from the kubedns container to keep the
-            # net memory requested by the pod constant.
-            memory: 50Mi
+                requests:
+                  cpu: 10m
+                  memory: 50Mi
+                limits:
+                  cpu: 10m
+                  memory: 50Mi
         args:
         - --cmd=nslookup kubernetes.default.svc.cluster.local 127.0.0.1 >/dev/null
         - --url=/healthz-dnsmasq
