@@ -48,3 +48,6 @@ spec:
           - --default-params={"linear":{"coresPerReplica":256,"nodesPerReplica":16,"min":1}}
           - --logtostderr=true
           - --v=2
+
+      nodeSelector:
+          zone: "be-prod"
