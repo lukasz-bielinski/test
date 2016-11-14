@@ -91,8 +91,7 @@ spec:
           name: storage
         - name: hooks
           mountPath: /hooks
-      nodeSelector:
-          zone: "be-prod"
+
       terminationGracePeriodSeconds: 90
       volumes:
       - name: storage

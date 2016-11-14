@@ -99,6 +99,5 @@ spec:
         - name: hooks
           secret:
             secretName: hooks
-      nodeSelector:
-          zone: "be-prod"
+
       dnsPolicy: ClusterFirst
