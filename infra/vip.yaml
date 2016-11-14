@@ -18,8 +18,7 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 
-      nodeSelector:
-        zone: fe-prod
+
 
       containers:
         - name: keepalived-vip
