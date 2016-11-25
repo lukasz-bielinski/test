@@ -7,7 +7,7 @@
     name: "kubedash"
     namespace: "kube-system"
   spec:
-    replicas: 1
+    replicas: 0
     selector:
       matchLabels:
         name: "kubedash"
