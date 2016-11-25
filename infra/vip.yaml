@@ -52,3 +52,7 @@ spec:
               value: "1"
             - name: AUTHPASS
               value: "abcdefg"
+
+
+      nodeSelector:
+          purpose: "vip"
