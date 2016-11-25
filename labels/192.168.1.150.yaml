@@ -4,7 +4,8 @@
   "metadata": {
     "name": "192.168.1.150",
     "labels": {
-      "zone": "fe-prod"
+      "zone": "fe-prod",
+      "purpose": "vip"
     }
   }
 }
