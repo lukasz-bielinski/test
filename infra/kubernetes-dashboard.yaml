@@ -24,7 +24,7 @@ metadata:
   name: kubernetes-dashboard
   namespace: kube-system
 spec:
-  replicas: 2
+  replicas: 0
   selector:
     matchLabels:
       app: kubernetes-dashboard
@@ -67,7 +67,7 @@ metadata:
 spec:
   externalIPs:
   - 192.168.1.150
-  - 192.168.1.22  
+  - 192.168.1.22
   ports:
   - port: 9090
     targetPort: 9090
