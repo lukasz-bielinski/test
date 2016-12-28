@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:0.7
+        image: lukaszbielinski/git-sync:0.6
         imagePullPolicy: Always
         resources:
           requests:
@@ -36,7 +36,7 @@ spec:
 
 
       - name: prov
-        image: lukaszbielinski/kubectl-image:0.13
+        image: lukaszbielinski/kubectl-image:0.12
         imagePullPolicy: Always
         resources:
           requests:
