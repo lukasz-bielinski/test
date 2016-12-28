@@ -51,7 +51,7 @@ metadata:
   labels:
     run: nginx-1
   name: nginx-1
-  namespace: ns-a
+  namespace: default
 spec:
   externalIPs:
   - 192.168.1.22
