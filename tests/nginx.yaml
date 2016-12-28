@@ -24,9 +24,9 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        volumeMounts:
-        - name: mypd
-          mountPath: /mypd
+        # volumeMounts:
+        # - name: mypd
+        #   mountPath: /mypd
         lifecycle:
           preStop:
             exec:
@@ -35,12 +35,12 @@ spec:
 
 
 
-      volumes:
-      - name: secr
-        emptyDir: {}
-      - name: mypd
-        persistentVolumeClaim:
-          claimName: myclaim
+      # volumes:
+      # - name: secr
+      #   emptyDir: {}
+      # - name: mypd
+      #   persistentVolumeClaim:
+      #     claimName: myclaim
 
 ---
 
@@ -54,7 +54,7 @@ metadata:
   namespace: default
 spec:
   externalIPs:
-  - 192.168.1.22
+  - 192.168.1.121
   ports:
   - port: 80
     protocol: TCP
