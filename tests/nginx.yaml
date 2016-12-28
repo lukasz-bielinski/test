@@ -2,9 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-1
-  namespace: ns-a
+  namespace: default
 spec:
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
@@ -24,9 +24,9 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        # volumeMounts:
-        # - name: secr
-        #   mountPath: /secr
+        volumeMounts:
+        - name: mypd
+          mountPath: /mypd
         lifecycle:
           preStop:
             exec:
@@ -38,7 +38,9 @@ spec:
       volumes:
       - name: secr
         emptyDir: {}
-
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: myclaim
 
 ---
 
