@@ -4,7 +4,7 @@
   "metadata": {
     "name": "192.168.1.132",
     "labels": {
-      "dd": "d"
+      "storagenode": "glusterfs"
     }
   }
 }
