@@ -2,9 +2,9 @@
   "kind": "Node",
   "apiVersion": "v1",
   "metadata": {
-    "name": "192.168.1.131",
+    "name": "192.168.1.120",
     "labels": {
-      "dd": "d"
+      "storagenode": "glusterfs"
     }
   }
 }
