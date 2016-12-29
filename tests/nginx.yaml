@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -24,9 +24,9 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        # volumeMounts:
-        # - name: mypd
-        #   mountPath: /mypd
+        volumeMounts:
+        - name: mypd
+          mountPath: /mypd
         lifecycle:
           preStop:
             exec:
@@ -35,12 +35,12 @@ spec:
 
 
 
-      # volumes:
-      # - name: secr
-      #   emptyDir: {}
-      # - name: mypd
-      #   persistentVolumeClaim:
-      #     claimName: myclaim
+      volumes:
+      - name: secr
+        emptyDir: {}
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: nginx-1
 
 ---
 
