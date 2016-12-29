@@ -1,13 +1,13 @@
-{
-  "kind": "Node",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "192.168.1.161",
-    "labels": {
-      "dd": "d"
-    }
-  }
-}
-
-
+# {
+#   "kind": "Node",
+#   "apiVersion": "v1",
+#   "metadata": {
+#     "name": "192.168.1.161",
+#     "labels": {
+#       "dd": "d"
+#     }
+#   }
+# }
 #
+#
+# #

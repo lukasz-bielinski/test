@@ -1,36 +1,36 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: kube-scheduler
-  namespace: kube-system
-spec:
-  replicas: 1
-  strategy:
-      rollingUpdate:
-        maxUnavailable: 1
-        maxSurge: 0
-  selector:
-    matchLabels:
-      app: kube-scheduler
-  template:
-    metadata:
-      name: kube-scheduler
-      labels:
-        app: kube-scheduler
-    spec:
-      hostNetwork: true
-      containers:
-      - name: kube-scheduler
-        image: quay.io/coreos/hyperkube:v1.4.1_coreos.0
-        command:
-        - /hyperkube
-        - scheduler
-        - --master=http://192.168.1.140:8080
-        - --leader-elect=true
-        livenessProbe:
-          httpGet:
-            host: 127.0.0.1
-            path: /healthz
-            port: 10251
-          initialDelaySeconds: 15
-          timeoutSeconds: 1
+# apiVersion: extensions/v1beta1
+# kind: Deployment
+# metadata:
+#   name: kube-scheduler
+#   namespace: kube-system
+# spec:
+#   replicas: 1
+#   strategy:
+#       rollingUpdate:
+#         maxUnavailable: 1
+#         maxSurge: 0
+#   selector:
+#     matchLabels:
+#       app: kube-scheduler
+#   template:
+#     metadata:
+#       name: kube-scheduler
+#       labels:
+#         app: kube-scheduler
+#     spec:
+#       hostNetwork: true
+#       containers:
+#       - name: kube-scheduler
+#         image: quay.io/coreos/hyperkube:v1.4.1_coreos.0
+#         command:
+#         - /hyperkube
+#         - scheduler
+#         - --master=http://192.168.1.140:8080
+#         - --leader-elect=true
+#         livenessProbe:
+#           httpGet:
+#             host: 127.0.0.1
+#             path: /healthz
+#             port: 10251
+#           initialDelaySeconds: 15
+#           timeoutSeconds: 1
