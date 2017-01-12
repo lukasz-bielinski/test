@@ -28,9 +28,11 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        # volumeMounts:
+        volumeMounts:
         # - name: mypd
         #   mountPath: /mypd
+        - name: hooks
+          mountPath: /hooks
         lifecycle:
           preStop:
             exec:
@@ -53,6 +55,9 @@ spec:
       volumes:
       - name: secr
         emptyDir: {}
+      - name: hooks
+        secret:
+          secretName: hooks
       # - name: mypd
       #   persistentVolumeClaim:
       #     claimName: nginx-1
