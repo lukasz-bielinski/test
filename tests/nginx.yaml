@@ -4,7 +4,11 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 2
+  replicas: 5
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
   template:
     metadata:
       labels:
