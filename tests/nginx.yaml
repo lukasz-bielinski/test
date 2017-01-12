@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: test
-        image: 1.11.8-alpine
+        image: docker.io/1.11.8-alpine
         resources:
           requests:
             memory: "1Mi"
