@@ -33,6 +33,17 @@ spec:
               # SIGTERM triggers a quick exit; gracefully terminate instead
               command: ["/usr/sbin/nginx","-s","quit"]
 
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+
+        readinessProbe:
+          tcpSocket:
+              port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
 
 
       volumes:
