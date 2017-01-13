@@ -50,8 +50,8 @@ spec:
           value: "false"
         - name: KUBERNETES_TRUST_CERTIFICATES
           value: "true"
-        - name: ES_HEAP_SIZE
-          value: "200m"
+        - name: ES_JAVA_OPTS
+          value: "-Xms256m -Xmx256m"
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: "NUMBER_OF_REPLICAS"
