@@ -87,16 +87,16 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 9200
-          initialDelaySeconds: 30
+          initialDelaySeconds: 3
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 9200
-          initialDelaySeconds: 30
+          initialDelaySeconds: 3
           timeoutSeconds: 5
 
-      terminationGracePeriodSeconds: 15
+      terminationGracePeriodSeconds: 1
       volumes:
       - name: storage
         emptyDir: {}

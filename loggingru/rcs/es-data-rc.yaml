@@ -77,13 +77,13 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 9300
-          initialDelaySeconds: 30
+          initialDelaySeconds: 3
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 9300
-          initialDelaySeconds: 30
+          initialDelaySeconds: 3
           timeoutSeconds: 5
 
         volumeMounts:
@@ -92,7 +92,7 @@ spec:
         - name: hooks
           mountPath: /hooks
 
-      terminationGracePeriodSeconds: 15
+      terminationGracePeriodSeconds: 1
       volumes:
       - name: storage
         emptyDir: {}
