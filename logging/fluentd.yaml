@@ -28,7 +28,7 @@ spec:
                 mountPath: /etc/td-agent
             env:
               - name: ELASTICSEARCH_HOST
-                value: elasticsearch.loggingru
+                value: elasticsearch.logging
               - name: ELASTICSEARCH_PORT
                 value: "9200"
 
