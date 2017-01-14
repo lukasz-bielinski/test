@@ -33,7 +33,7 @@ spec:
           capabilities:
             add:
               - IPC_LOCK
-        image: lukaszbielinski/es5:5 
+        image: lukaszbielinski/es5:5_1 
         imagePullPolicy: Always
         env:
         - name: NAMESPACE
