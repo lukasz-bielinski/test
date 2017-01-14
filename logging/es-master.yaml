@@ -60,7 +60,7 @@ spec:
           value: "2"
         - name: "NUMBER_OF_SHARDS"
           value: "3"
-                    
+
         ports:
         - containerPort: 9300
           name: transport
