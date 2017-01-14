@@ -1,0 +1,55 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: logging
+  labels:
+    k8s-app: kibana-logging
+    version: v1
+spec:
+  replicas: 0
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: kibana-logging
+        version: v1
+    spec:
+      containers:
+      - name: kibana
+        image: kibana:5.1.1
+        resources:
+                requests:
+                  cpu: 10m
+                  memory: 100Mi
+                limits:
+                  cpu: 1000m
+                  memory: 1000Mi
+
+        env:
+        - name: "ELASTICSEARCH_URL"
+          value: "http://elasticsearch.logging:9200"
+        - name: "NODE_OPTIONS"
+          value: "--max-old-space-size=500"
+
+        ports:
+        - containerPort: 5601
+          name: http
+          protocol: TCP
+
+        livenessProbe:
+          tcpSocket:
+            port: 5601
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+
+        readinessProbe:
+          tcpSocket:
+              port: 5601
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+
+
+#11
