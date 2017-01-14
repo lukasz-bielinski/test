@@ -39,17 +39,17 @@ spec:
           name: http
           protocol: TCP
 
-        livenessProbe:
-          tcpSocket:
-            port: 5601
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
-
-        readinessProbe:
-          tcpSocket:
-              port: 5601
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
+        # livenessProbe:
+        #   tcpSocket:
+        #     port: 5601
+        #   initialDelaySeconds: 30
+        #   timeoutSeconds: 1
+        #
+        # readinessProbe:
+        #   tcpSocket:
+        #       port: 5601
+        #   initialDelaySeconds: 30
+        #   timeoutSeconds: 1
 
 
 #11
