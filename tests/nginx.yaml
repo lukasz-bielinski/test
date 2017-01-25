@@ -4,7 +4,7 @@ metadata:
   name: nginx-1
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
       rollingUpdate:
         maxUnavailable: 0
@@ -42,13 +42,13 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 80
-          initialDelaySeconds: 30
+          initialDelaySeconds: 10
           timeoutSeconds: 5
 
         readinessProbe:
           tcpSocket:
               port: 80
-          initialDelaySeconds: 30
+          initialDelaySeconds: 10
           timeoutSeconds: 5
 
 
