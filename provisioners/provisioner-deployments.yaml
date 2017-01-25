@@ -5,6 +5,10 @@ metadata:
   namespace: provisioners
 spec:
   replicas: 1
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
   template:
     metadata:
       labels:
@@ -36,7 +40,7 @@ spec:
 
 
       - name: prov
-        image: lukaszbielinski/kubectl-image:0.12
+        image: lukaszbielinski/kubectl-image:0.28-kubectl-lock
         imagePullPolicy: Always
         resources:
           requests:
@@ -51,6 +55,8 @@ spec:
         env:
         - name: NAMESPACE
           value:
+        - name: PROV_TYPE
+          value: generic
 
 
       volumes:
