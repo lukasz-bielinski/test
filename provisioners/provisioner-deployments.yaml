@@ -4,7 +4,7 @@ metadata:
   name: provisioner-deployments
   namespace: provisioners
 spec:
-  replicas: 4
+  replicas: 1
   strategy:
       rollingUpdate:
         maxUnavailable: 0
