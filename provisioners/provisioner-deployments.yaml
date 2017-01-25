@@ -54,7 +54,7 @@ spec:
           mountPath: /src
         env:
         - name: DEPLOYMENT_DIR
-          value: tests
+          value: 
         - name: PROV_TYPE
           value: generic
 
