@@ -28,11 +28,11 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-        # volumeMounts:
-        # # - name: mypd
-        # #   mountPath: /mypd
-        # - name: hooks
-        #   mountPath: /hooks
+        volumeMounts:
+        # - name: mypd
+        #   mountPath: /mypd
+        - name: hooks
+          mountPath: /hooks
         lifecycle:
           preStop:
             exec:
