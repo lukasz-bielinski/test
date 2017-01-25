@@ -53,8 +53,8 @@ spec:
         - name: markdown
           mountPath: /src
         env:
-        - name: NAMESPACE
-          value:
+        - name: DEPLOYMENT_DIR
+          value: tests
         - name: PROV_TYPE
           value: generic
 
