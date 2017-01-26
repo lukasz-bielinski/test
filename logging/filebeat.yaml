@@ -31,7 +31,7 @@ spec:
           mountPath: /var/lib/docker/containers
           readOnly: true
         - name: filebeat
-          mountPath: /etc/filebeat/ 
+          mountPath: /etc/filebeat-new/ 
       terminationGracePeriodSeconds: 30
       volumes:
       - name: varlog
