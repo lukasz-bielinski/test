@@ -22,7 +22,7 @@ spec:
             memory: 50Mi
         env:
           - name: LOGSTASH_HOSTS
-            value: "'192.168.1.161:5000'"
+            value: "'192.168.1.161:5044'"
           - name: LOG_LEVEL
             value: debug
         volumeMounts:
