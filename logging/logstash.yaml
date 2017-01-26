@@ -26,7 +26,7 @@ spec:
           protocol: TCP
 
         volumeMounts:
-        - mountPath: /logstash/config-new
+        - mountPath: /etc/logstash
           name: logstash
 
       terminationGracePeriodSeconds: 1
