@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: logstash
+  namespace: logging
+spec:
+  replicas: 1
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        version: v1
+    spec:
+      containers:
+      - name: logstash
+        image: quay.io/pires/docker-logstash:5.1.2
+
+        ports:
+        - containerPort: 5601
+          name: http
+          protocol: TCP
+
+        volumeMounts:
+        - mountPath: /logstash/config
+          name: logstash
+
+      terminationGracePeriodSeconds: 1
+      volumes:
+      - name: logstash
+        secret:
+          secretName: logstash
