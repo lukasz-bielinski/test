@@ -15,7 +15,7 @@ spec:
       containers:
       - name: filebeat
         image: apsops/filebeat-kubernetes:v0.2
-        command: ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat-new/filebeat.yml"]
+        command: ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat-new/filebeat1.yml"]
         resources:
           limits:
             cpu: 50m
