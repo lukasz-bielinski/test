@@ -38,3 +38,6 @@ spec:
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers
+
+
+##https://github.com/ApsOps/filebeat-kubernetes
