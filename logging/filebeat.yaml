@@ -15,6 +15,7 @@ spec:
       containers:
       - name: filebeat
         image: apsops/filebeat-kubernetes:v0.2
+        command: ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat-new/filebeat.yml"]
         resources:
           limits:
             cpu: 50m
@@ -31,7 +32,7 @@ spec:
           mountPath: /var/lib/docker/containers
           readOnly: true
         - name: filebeat
-          mountPath: /etc/filebeat-new/ 
+          mountPath: /etc/filebeat-new/
       terminationGracePeriodSeconds: 30
       volumes:
       - name: varlog
