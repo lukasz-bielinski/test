@@ -18,7 +18,7 @@ spec:
       containers:
       - name: logstash
         image: quay.io/pires/docker-logstash:5.1.2
-        command: ["/logstash/bin/logstash", "--quiet", "-f", "/logstash/config-new/logstash.conf"]
+        # command: ["/logstash/bin/logstash", "--quiet", "-f", "/logstash/config-new/logstash.conf"]
 
         ports:
         - containerPort: 5044
