@@ -4,7 +4,7 @@ metadata:
   name: kafka-deployment
   namespace: kafka-cluster
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: kafka
@@ -36,7 +36,7 @@ spec:
           - name: KAFKA_ZOOKEEPER_CONNECT
             value: zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
           - name: KAFKA_CREATE_TOPICS
-            value: "test1:3:2,test3:3:2"
+            value: "testa:3:2,testb:3:2"
 
 
 ##usr/bin/kafka-consumer-offset-checker --group flume --topic testf --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
