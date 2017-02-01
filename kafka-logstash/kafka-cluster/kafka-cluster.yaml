@@ -4,7 +4,7 @@ metadata:
   name: kafka-deployment
   namespace: kafka-cluster
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: kafka
@@ -44,4 +44,4 @@ spec:
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --create --replication-factor 2 --partitions 1 --topic test3 --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --list --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181
 ##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh  --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181 --delete --topic your_topic_name
-##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --describe --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181  --topic demo-topic
+##/opt/kafka_2.11-0.10.0.1/bin/kafka-topics.sh --describe --zookeeper zoo1.kafka-cluster:2181,zoo2.kafka-cluster:2181,zoo3.kafka-cluster:2181  --topic test3
