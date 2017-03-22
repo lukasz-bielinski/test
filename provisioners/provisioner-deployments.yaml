@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:mode8
+        image: lukaszbielinski/git-sync:mode9
         imagePullPolicy: Always
         resources:
           requests:
