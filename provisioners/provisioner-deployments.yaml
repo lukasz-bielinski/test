@@ -37,6 +37,8 @@ spec:
           value: "2"
         - name: GIT_SYNC_DEST
           value: /git
+        - name: GIT_PULL_TYPE
+          value: AUTO
 
 
       - name: prov
