@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:mod2
+        image: lukaszbielinski/git-sync:mod3
         imagePullPolicy: Always
         resources:
           requests:
@@ -29,16 +29,16 @@ spec:
         - name: markdown
           mountPath: /git
         - name: klucze
-          mountPath: /root/.ssh
+          mountPath: /root/.ssh/klucze
         env:
         - name: GIT_SYNC_REPO
           value: git@github.com:lukasz-bielinski/test.git
         - name: GIT_SYNC_WAIT
-          value: "5"
+          value: "20"
         - name: GIT_SYNC_DEST
           value: /git
         - name: GIT_PULL_TYPE
-          value: HSA
+          value: HSA2
 
 
       - name: prov
