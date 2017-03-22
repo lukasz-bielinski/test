@@ -38,7 +38,7 @@ spec:
         - name: GIT_SYNC_DEST
           value: /git
         - name: GIT_PULL_TYPE
-          value: HSA
+          value: HSA1
 
 
       - name: prov
