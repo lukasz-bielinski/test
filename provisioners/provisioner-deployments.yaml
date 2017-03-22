@@ -34,7 +34,7 @@ spec:
         - name: GIT_SYNC_REPO
           value: git@github.com:lukasz-bielinski/test.git
         - name: GIT_SYNC_WAIT
-          value: "20"
+          value: "5"
         - name: GIT_SYNC_DEST
           value: /git
         - name: GIT_PULL_TYPE
