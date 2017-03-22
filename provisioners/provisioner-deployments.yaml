@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: git-sync
-        image: lukaszbielinski/git-sync:0.6
+        image: lukaszbielinski/git-sync:0.7
         imagePullPolicy: Always
         resources:
           requests:
@@ -54,7 +54,7 @@ spec:
           mountPath: /src
         env:
         - name: DEPLOYMENT_DIR
-          value: 
+          value:
         - name: PROV_TYPE
           value: generic
 
