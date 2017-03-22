@@ -29,7 +29,7 @@ spec:
         - name: markdown
           mountPath: /git
         - name: klucze
-          mountPath: /root/.ssh/klucze
+          mountPath: /root/.ssh
         env:
         - name: GIT_SYNC_REPO
           value: git@github.com:lukasz-bielinski/test.git
