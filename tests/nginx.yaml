@@ -50,6 +50,7 @@ spec:
               port: 80
           initialDelaySeconds: 10
           timeoutSeconds: 5
+      terminationGracePeriodSeconds: 2
 
 
       volumes:
